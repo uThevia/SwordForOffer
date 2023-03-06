@@ -12,8 +12,9 @@ public class Q17_PrintNDigitsFromOne {
     public static int[] printNumbersSimple(int n) {
         int end = (int)Math.pow(10, n) - 1;
         int[] res = new int[end];
-        for(int i = 0; i < end; i++)
+        for(int i = 0; i < end; i++) {
             res[i] = i + 1;
+        }
         return res;
     }
 
@@ -74,8 +75,9 @@ public class Q17_PrintNDigitsFromOne {
 
         char[] number = new char[n];        // 单个数: 最多n位
         // 依次打印长为1位的数字: 单独处理以避免输出0
-        for (int j = 1; j < BITS.length; j++)
+        for (int j = 1; j < BITS.length; j++) {
             System.out.print(BITS[j] + ",");    // 必须是","而不是 char与char或char与int的运算(所有数学运算符)会将char变为int运算
+        }
         // 依次打印长为i位的数字: i=2:n
         for (int i = 2; i <= n; i++) {
             printDfs(0, i, BITS, number);   // 分数打印
