@@ -4,17 +4,23 @@
 public class Q10_Fibonacci {
     /** 递归 */
     public static long recursion(long n) {
-        if (n == 0)
+        if (n == 0) {
             return 0;
-        if (n == 1)
+        }
+        if (n == 1) {
             return 1;
+        }
         return recursion(n - 1) + recursion(n - 2);
     }
 
     /** 循环 */
     public static long loop(long n) {
-        if (n == 0) return 0;
-        if (n == 1) return 1;
+        if (n == 0) {
+            return 0;
+        }
+        if (n == 1) {
+            return 1;
+        }
         int fibNminusOne = 1;
         int fibNminusTwo = 0;
         int fibN = 0;
@@ -44,8 +50,9 @@ public class Q10_Fibonacci {
         final long[][] UNIT = { { 1, 1 }, { 1, 0 } };
 
         long[][] matrix = {{},{}};
-        if (n == 0)
+        if (n == 0) {
             matrix =  ZERO;
+        }
         if (n == 1) {
             matrix = UNIT;
         }
@@ -75,8 +82,9 @@ public class Q10_Fibonacci {
      * 矩阵相乘
      */
     public static long[][] matrixMultiply(long[][] A, long[][] B) {
-        if (A == null || B == null || A.length == 0 || B.length == 0 )
+        if (A == null || B == null || A.length == 0 || B.length == 0 ) {
             return null;
+        }
         if (A[0].length != B.length){
             System.out.println("matrixMultiply:: 矩阵乘法维度不一致");
             return null;

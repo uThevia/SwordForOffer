@@ -8,10 +8,12 @@ public class Q18_removeListNode {
      */
     public static ListNode remove(ListNode head, ListNode node) {
         // 检查输入
-        if (null == head)
+        if (null == head) {
             return null;
-        if (null == node)
+        }
+        if (null == node) {
             return head;
+        }
 
         if (head == node) {     // 删头
             return head.next;

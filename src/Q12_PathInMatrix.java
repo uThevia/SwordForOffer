@@ -1,6 +1,3 @@
-import java.util.List;
-import java.util.Stack;
-
 /**
  * 矩阵中的路径
  * 给定一个mxn二维字符矩阵board和一个字符串word。仅当word存在于网格中返回true。
@@ -34,8 +31,9 @@ public class Q12_PathInMatrix {
         // 遍历矩阵每个点为起始点
         for (int row = 0; row < m; row++){
             for (int col = 0; col < n; col++){
-                if (stepByRecursion(board, m, n, word, wordLength, pathLength, isInPath, row, col))
+                if (stepByRecursion(board, m, n, word, wordLength, pathLength, isInPath, row, col)) {
                     return true;    // 逻辑判断找到一条就行
+                }
             }
         }
 
@@ -57,14 +55,20 @@ public class Q12_PathInMatrix {
      */
     private static boolean stepByRecursion(char[][] board, int m, int n, char[] word, int wordLength, int pathLength, boolean[][] isInPath, int row, int col){
         if (wordLength == pathLength)      // 搜索完成
+        {
             return true;
+        }
         if (row < 0 || row >= m || col < 0 || col >= n ) // 点越界矩阵
+        {
             return false;
+        }
 
         // 当前点是否符合
         boolean isNow = (!isInPath[row][col]) && board[row][col] == word[pathLength];  // 未经历过 且 单字符相同
         if (!isNow)     // 当前点不符合直接返回false
+        {
             return false;
+        }
 
         // 将当前点加入路径
         ++pathLength;

@@ -19,12 +19,13 @@ public class Q04_FindNumberInTwoDArray {
         int temp = 0;
         while (row < m && column >= 0) {   // 未出界
             temp = matrix[row][column];
-            if (temp == num)
+            if (temp == num) {
                 return true;
-            else if (temp < num)
-                row += 1;
-            else
+            } else if (temp >= num) {
                 column -= 1;
+            } else {
+                row += 1;
+            }
         }
         return false;
     }

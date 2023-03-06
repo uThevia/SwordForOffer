@@ -18,12 +18,17 @@ public class Q26_SubstructureInTree {
         // 寻找对象树和寻找项树为空都返回空: A = null || B = null -> null
         // 前序遍历寻找与B相同值的结点R
         if (target != null && term != null) {
-            if (target.val == term.val)
+            if (target.val == term.val) {
                 res = recursionStep(target, term);
+            }
             if (!res)   // 结果为true就直接返回, 仅为false才继续寻找
+            {
                 res = recursion(target.left, term);
+            }
             if (!res)   // 结果为true就直接返回, 仅为false才继续寻找
+            {
                 res = recursion(target.right, term);
+            }
         }
         return res;
     }
@@ -38,13 +43,15 @@ public class Q26_SubstructureInTree {
     public static boolean recursionStep(BinaryTreeNode root, BinaryTreeNode term) {
         boolean res = false;
         if (term == null)   // 查找项可以为空: B是R的同根子集树
+        {
             res = true;
-        else if (root == null)
+        } else if (root == null) {
             res = false;
-        else if (root.val != term.val)
+        } else if (root.val != term.val) {
             res = false;
-        else
+        } else {
             res = recursionStep(root.left, term.left) && recursionStep(root.right, term.right); // 递归查找左右
+        }
         return res;
     }
 

@@ -12,10 +12,11 @@ public class Q05_ReplaceSpace {
     public static String byStringBuilder(String s) {
         StringBuilder res = new StringBuilder();
         for(char c : s.toCharArray()) {
-            if (c == ' ')
+            if (c == ' ') {
                 res.append(REPLACE_SPACE);
-            else
+            } else {
                 res.append(c);
+            }
         }
         return  res.toString();
     }
@@ -30,8 +31,9 @@ public class Q05_ReplaceSpace {
 
         int count = 0;  //空格数
         for(char c : oldString) {
-            if (c == ' ')
+            if (c == ' ') {
                 ++count;
+            }
         }
 
         int replaceLength = REPLACE_SPACE_STRING.length;
@@ -45,8 +47,9 @@ public class Q05_ReplaceSpace {
                 }
                 j++;    // 修正多移动了1位 上for与外套for的j--重复
             }
-            else
+            else {
                 res[j] = oldString[i];
+            }
         }
 
         return String.valueOf(res);

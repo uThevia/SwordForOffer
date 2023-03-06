@@ -29,8 +29,9 @@ public class Q17_PrintNDigitsFromOne {
         char[] number = new char[n];        // 单个数: 最多n位
 
         // 依次产生长为i位的数字: i=1:n
-        for (int i = 1; i <= n; i++)
+        for (int i = 1; i <= n; i++) {
             getDfs(0, i, BITS, number, res);
+        }
 
         // 将结果从List<StringBuilder>转为int[]
         int[] resInt = new int[res.size()];

@@ -6,7 +6,9 @@ import utils.ListNode;
 public class Q24_ReverseList {
     public static ListNode reverse(ListNode head) {
         if (null == head)   // 空链表
+        {
             return null;
+        }
         /* 不需要
         if (null == head.next)  // 单节点
             return head;
@@ -36,8 +38,9 @@ public class Q24_ReverseList {
         // 迭代修改 node.next = node.previous 直到尾结点
         while (node != null) { // 直到尾结点
             ListNode next = node.next;   // 保存后继结点的指向
-            if (next == null)
+            if (next == null) {
                 tail = node;
+            }
 
             node.next = previous;
 

@@ -14,7 +14,9 @@ public class Q03_FindRepeatNumber {
         Set<Integer> set = new HashSet<Integer>();
         for (int num : nums) {
             if (!set.add(num))     // set.add(num) 重复时添加失败返回False
+            {
                 return num;
+            }
 
 //            // 等效方式
 //            if (set.contains(num))
@@ -37,8 +39,9 @@ public class Q03_FindRepeatNumber {
                 continue;
             }
             // nums[i]=nums[nums[i]]
-            if (nums[i] == nums[nums[i]])
+            if (nums[i] == nums[nums[i]]) {
                 return  nums[i];
+            }
             // swap(nums[i], nums[nums[i]])
             int temp = nums[i];
             nums[i] = nums[nums[i]];
@@ -82,8 +85,9 @@ public class Q03_FindRepeatNumber {
     private static int countValueNum(int[] nums, int left, int right) {
         int count = 0;
         for (int num : nums) {
-            if (num >= left && num <=right)
+            if (num >= left && num <=right) {
                 count++;
+            }
         }
         return count;
     }
@@ -93,10 +97,13 @@ public class Q03_FindRepeatNumber {
      * 检查输入有效性
      */
     private static boolean checkInput(int[] nums){
-        if (nums==null) return false;
+        if (nums==null) {
+            return false;
+        }
         for (int j=0;j<nums.length;j++){
-            if (nums[j]<1||nums[j]>=nums.length)
+            if (nums[j]<1||nums[j]>=nums.length) {
                 return false;
+            }
         }
         return true;
     }

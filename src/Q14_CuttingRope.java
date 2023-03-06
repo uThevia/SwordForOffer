@@ -7,10 +7,12 @@ public class Q14_CuttingRope {
     public static int formula(int n){
         int result = 1; // 乘积结果初始化为1
         if (n < 0)  // 不合法输入
+        {
             result = 0;
-        else if (n <= 3)    // 基例
+        } else if (n <= 3)    // 基例
+        {
             result =  n;
-        else {
+        } else {
             int m = n / 3;
             switch (n % 3){
                 case 0: result = (int) Math.pow(3, m);
@@ -27,10 +29,12 @@ public class Q14_CuttingRope {
     public static int greedy(int n){
         int result = 1; // 乘积结果初始化为1
         if (n < 0)  // 不合法输入
+        {
             result = 0;
-        else if (n <= 4)    // 基例
+        } else if (n <= 4)    // 基例
+        {
             result =  n;
-        else {
+        } else {
             final int BEST_CUT_LENGTH = 3;
             while (n > 4) {
                 result *= BEST_CUT_LENGTH;
@@ -46,14 +50,17 @@ public class Q14_CuttingRope {
         int BASE_MAX = 4;   // 基例最大值
 
         if (n < 0)  // 不合法输入
+        {
             result = 0;
-        else if (n <= BASE_MAX)    // 基例
+        } else if (n <= BASE_MAX)    // 基例
+        {
             result =  n;
-        else {
+        } else {
             // final int BEST_CUT_LENGTH = 3;
             int[] dp = new int[n + 1];  // 要表示dp[0:n]需要n+1
-            for (int i = 1; i <= BASE_MAX; i++)
+            for (int i = 1; i <= BASE_MAX; i++) {
                 dp[i] = i;
+            }
             for (int i = BASE_MAX + 1; i <= n; i++){
                 int dptemp = 0;   // 暂存dp[i]循环j=2:i/2的最大结果
                 for (int j = 2; j <= i / 2; j++) {

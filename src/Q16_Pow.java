@@ -30,12 +30,16 @@ public class Q16_Pow {
         }
         while (0 != n) {	// 在a=1时已不用求幂但入循环能通过odd的if分支将x传递给rem
             if (1 == n % 2)	// odd
+            {
                 rem = rem * x;
+            }
             x = (x * x);
             n /= 2;
         }
         if (isNegetive)     // 负数
+        {
             rem = 1.0 / rem;
+        }
         return rem;
     }
     /** 二进制写法 */
@@ -45,8 +49,9 @@ public class Q16_Pow {
             if (0 == n) {
                 System.out.println("quickPower:: 输入不合法x=n=0");
                 return 0;
-            }else
+            }else {
                 return 0;
+            }
         }
         double rem = 1;
         boolean isNegetive = false; // 负数幂标志
@@ -57,12 +62,16 @@ public class Q16_Pow {
         // 幂看成二进制处理
         while (0 != n) {	// a > 0; 直到处理完二进制长度为止
             if (1 == (n & 1))	//  幂的二进制右数第b位(当前最低位)为1
+            {
                 rem = rem * x;	// 将x^2^b 计入
+            }
             x *= x;	// x^2^(b+1)
             n >>= 1;			// 舍弃二进制右数第b位(当前最低位)
         }
         if (isNegetive)     // 负数
+        {
             rem = 1.0 / rem;
+        }
         return rem;
     }
 
@@ -73,8 +82,9 @@ public class Q16_Pow {
             if (0 == n) {
                 System.out.println("quickPower:: 输入不合法x=a=0");
                 return 0;
-            }else
+            }else {
                 return 0;
+            }
         }
 
         long N = n;

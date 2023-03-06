@@ -9,8 +9,9 @@ public class Q13_RobotMovingRange {
      */
     public static int backtracking(int m, int n, int k, int start_x, int start_y) {
         // 检查输入
-        if (m <= 0 || n <= 0 || k <= 0)
+        if (m <= 0 || n <= 0 || k <= 0) {
             return 0;
+        }
 
         boolean[][] visited = new boolean[m][n];
 

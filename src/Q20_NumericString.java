@@ -50,8 +50,9 @@ public class Q20_NumericString {
      * A,C前可加[+-]: A,C是整数(有无符号都行), B是无符号整数
      */
     public static boolean isNumberByScan(String s) {
-        if (s == null || s.length() == 0)
+        if (s == null || s.length() == 0) {
             return false;
+        }
 
         final int n = s.length();
         index = 0;  // 重置下标
@@ -63,8 +64,9 @@ public class Q20_NumericString {
          */
 
         // 扫描过空格
-        while (index != n && s.charAt(index) == ' ')  // 书中代码没有该项测试
+        while (index != n && s.charAt(index) == ' ') { // 书中代码没有该项测试
             ++index;
+        }
         // 扫描过整数部分 A
         res = scanInteger(s);
         // 小数部分: 如果出现'.' 则 A.B || A. || .B = A || .B
@@ -80,8 +82,9 @@ public class Q20_NumericString {
             res = res && scanInteger(s);
         }
         // 跳过结尾的空格
-        while (index != n && s.charAt(index) == ' ')
+        while (index != n && s.charAt(index) == ' ') {
             ++index;
+        }
 
         // 结尾是否有多余字符
         res = res && index == n;    // 没有多余字符应该index指向结尾后一位
@@ -95,8 +98,9 @@ public class Q20_NumericString {
      */
     private static boolean scanInteger(String s) {
         // 扫描过 [+|-]
-        if (index != s.length() && (s.charAt(index) == '+' || s.charAt(index) == '-'))
+        if (index != s.length() && (s.charAt(index) == '+' || s.charAt(index) == '-')) {
             ++index;
+        }
         return scanUnsignedInteger(s);
     }
 
@@ -106,8 +110,9 @@ public class Q20_NumericString {
     private static boolean scanUnsignedInteger(String s) {
         int before = index; // 起始位置
         // 扫描过 数字 0-9
-        while (index != s.length() && s.charAt(index) >= '0' && s.charAt(index) <= '9')
+        while (index != s.length() && s.charAt(index) >= '0' && s.charAt(index) <= '9') {
             ++index;
+        }
         // 有扫描过才返回 true: index != before
         return index != before;
     }
@@ -242,5 +247,4 @@ public class Q20_NumericString {
         CHAR_SPACE,
         CHAR_ILLEGAL
     }
-
 }

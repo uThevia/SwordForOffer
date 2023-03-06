@@ -31,7 +31,9 @@ public class Q15_NumbeOf1sInBinary {
         int one = 1;    // 1左移若干位
         while (one != 0){
             if (one == (n & one))   // 左移若干位的1 与n取与结果为该位的值
+            {
                 ++count;
+            }
             one <<= 1 ;    // 1左移
         }
         return count;
@@ -61,8 +63,9 @@ public class Q15_NumbeOf1sInBinary {
     public static int shift_unsign(int n) {
         int count = 0;
         while (n != 0) {
-            if (1 == (n & 1))
+            if (1 == (n & 1)) {
                 ++count;
+            }
             n >>>= 1; // 无符号右移 避免
         }
         return count;
@@ -79,8 +82,9 @@ public class Q15_NumbeOf1sInBinary {
             ++count;
         }
         while (n != 0) {
-            if (1 == (n & 1))
+            if (1 == (n & 1)) {
                 ++count;
+            }
             n >>= 1; // 右移
         }
         return count;
@@ -88,10 +92,11 @@ public class Q15_NumbeOf1sInBinary {
 
     /** 最高位取反 */
     int notHighestBit(int n) {
-        if (n > 0)
+        if (n > 0) {
             n |= Integer.MIN_VALUE; // 正数最高位取反
-        else if (n < 0)
+        } else if (n < 0) {
             n &= Integer.MAX_VALUE;     // 负数最高位取反
+        }
         return n;
     }
 }

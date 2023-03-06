@@ -20,7 +20,9 @@ public class Q11_MinInRotateArray {
         int left = 0;
         int right = length - 1;
         if (left == right || numbers[left] < numbers[right] )    // 数组是单元素 或 有序数组(旋转0或kn次)
+        {
             return numbers[left];
+        }
 
         int mid;
         while (left < right - 1) {     // 停止条件: left,right = 最大值,最小值
@@ -30,8 +32,9 @@ public class Q11_MinInRotateArray {
             if (numbers[left] == numbers[mid] && numbers[mid] == numbers[right]) {
                 int result = numbers[left];
                 for (int i = left + 1; i <= right; i++) {
-                    if (numbers[i] < result)
+                    if (numbers[i] < result) {
                         result = numbers[i];
+                    }
                 }
                 return  result;
             }

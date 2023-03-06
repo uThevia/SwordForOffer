@@ -12,8 +12,9 @@ public class Q21_ReorderArray {
      */
     public static int[] partition(int[] array) {
         int n;
-        if (null == array || 0 == (n = array.length))
+        if (null == array || 0 == (n = array.length)) {
             return array;
+        }
 
         int left = 0;
         int right = array.length - 1;
@@ -37,10 +38,12 @@ public class Q21_ReorderArray {
 
     private static void swap(int[] array, int left, int right) {
         int n;
-        if (null == array || 0 == (n = array.length))
+        if (null == array || 0 == (n = array.length)) {
             return;
-        if (left < 0 || left >= n || right < 0 || right >= n)
+        }
+        if (left < 0 || left >= n || right < 0 || right >= n) {
             return;
+        }
 
         int temp = array[left];
         array[left] = array[right];
@@ -56,8 +59,9 @@ public class Q21_ReorderArray {
      */
     public static<T> T[] partition(T[] array, Function<T, Boolean> function) {
         int n;
-        if (null == array || 0 == (n = array.length))
+        if (null == array || 0 == (n = array.length)) {
             return array;
+        }
 
         int left = 0;
         int right = array.length - 1;
@@ -80,10 +84,12 @@ public class Q21_ReorderArray {
     }
     private static<T> void swap(T[] array, int left, int right) {
         int n;
-        if (null == array || 0 == (n = array.length))
+        if (null == array || 0 == (n = array.length)) {
             return;
-        if (left < 0 || left >= n || right < 0 || right >= n)
+        }
+        if (left < 0 || left >= n || right < 0 || right >= n) {
             return;
+        }
 
         T temp = array[left];
         array[left] = array[right];

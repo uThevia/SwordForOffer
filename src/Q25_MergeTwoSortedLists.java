@@ -74,10 +74,12 @@ public class Q25_MergeTwoSortedLists {
     /** 递归法 */
     public static ListNode mergeByRecursion(ListNode head1, ListNode head2) {
         // 基例
-        if (null == head1)
+        if (null == head1) {
             return head2;
-        if (null == head2)
+        }
+        if (null == head2) {
             return  head1;
+        }
 
         ListNode head = null;
         if (head1.val < head2.val) {

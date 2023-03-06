@@ -1,7 +1,5 @@
 import utils.BinaryTreeNode;
 
-import java.util.ArrayList;
-
 /**
  * 根据二叉树的前序遍历和中序遍历重建二叉树
  */
@@ -34,15 +32,18 @@ public class Q07_RebuildTree {
 
         // 递归基本情况
         if (preLeft > preRight || inLeft > inRight)     // 结点为空
+        {
             return null;
+        }
 
         int rootVal = preorder[preLeft];
         BinaryTreeNode root = new BinaryTreeNode(rootVal);
 
         // 在中序遍历中找到根结点
         int rootIndex = inLeft;  // 中序中根结点下标
-        while(inorder[rootIndex] != rootVal && rootIndex <= inRight)
+        while(inorder[rootIndex] != rootVal && rootIndex <= inRight) {
             ++rootIndex;
+        }
         if (rootIndex > inRight) {    // 输入有误 中序中找不到根结点
             System.out.println("rebuildTree:: 递归中 中序中找不到根结点");
             return null;

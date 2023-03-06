@@ -16,8 +16,9 @@ public class Q19_RegularExpressionsMatching {
      * -------------------- 循环法 --------------------
      */
     public static boolean match(String string, String pattern) {
-        if (string == null || null == pattern)
+        if (string == null || null == pattern) {
             return false;
+        }
 
         int n = string.length();
         int m = pattern.length();
@@ -33,7 +34,9 @@ public class Q19_RegularExpressionsMatching {
             for (int j = 1; j < m; j++) {   // 只需考虑非空正则
                 if (STAR != pattern.charAt(j - 1)) {        // 处理非'*'
                     if (isCharMatch(string, pattern, i - 1, j - 1))    // 输入i,j是字符串(字符数组)的下标; 越界在isCharMatch中处理
+                    {
                         f[i][j] = f[i - 1][j - 1];
+                    }
                 } else {                                      // 处理'*'
                     // pattern尾部至少2位: "c*"
                     // 以下2种情况的关系是 or :
@@ -60,10 +63,12 @@ public class Q19_RegularExpressionsMatching {
      * @param j       pattern[j]
      */
     public static boolean isCharMatch(String string, String pattern, int i, int j) {
-        if (string == null || null == pattern)
+        if (string == null || null == pattern) {
             return false;
-        if (i < 0 || i >= string.length() || j < 0 || j >= pattern.length())
+        }
+        if (i < 0 || i >= string.length() || j < 0 || j >= pattern.length()) {
             return false;
+        }
 
         // '.*'代表任意字符出现任意次 不能忽略
         final char POINT = '.';
@@ -86,32 +91,37 @@ public class Q19_RegularExpressionsMatching {
         if (n == 0) {   // # 空字符串
             // 空字符串匹配 仅有下标奇数位均为'*'
             if (m % 2 != 0)  // 长度为奇数必不匹配
+            {
                 return false;
-            else {  // 长度为偶数: 包括空正则串
+            } else {  // 长度为偶数: 包括空正则串
                 // 遍历奇数位 判断为'*'
                 for (int i = 1; i < m; i += 2) {
-                    if (pattern.charAt(i) != STAR)
+                    if (pattern.charAt(i) != STAR) {
                         return false;
+                    }
                 }
                 // 仅当字串空且模式串形如"c*" * k(包括空模式串)返回true
                 return true;
             }
         } else {    // # 非空字符串
             // 区分正则串空与否
-            if (m == 0) // 空正则串
+            if (m == 0) { // 空正则串
                 return false;
-            else {      // 非空正则串
+            } else {      // 非空正则串
                 // pattern[1]分是'*'和不是'*'
                 if (m < 2 || pattern.charAt(1) != STAR) {   // 正则串不足2位 or 后一位不是'*'
                     // 匹配 string[0], pattern[0]
-                    if (isCharMatch(string, pattern, 0, 0))
+                    if (isCharMatch(string, pattern, 0, 0)) {
                         return matchByRecursion(string.substring(1), pattern.substring(1));
+                    }
                     return false;
                 } else {           // 后一位是'*'
                     // 如果string[0]和pattern[0]匹配
                     if (isCharMatch(string, pattern, 0, 0))
                         // 用"c*" || 不用"c*"
+                    {
                         return matchByRecursion(string.substring(1), pattern) || matchByRecursion(string, pattern.substring(2));
+                    }
 
                     // 如果string[0]和pattern[0]不匹配 直接忽略"c*"
                     return matchByRecursion(string, pattern.substring(2));
@@ -124,8 +134,9 @@ public class Q19_RegularExpressionsMatching {
      * 递归下标法
      */
     public static boolean matchByRecursionWithStep(String string, String pattern) {
-        if (string == null || null == pattern)
+        if (string == null || null == pattern) {
             return false;
+        }
 
         return matchByRecursionStep(string, pattern, 0, 0);
     }
@@ -137,7 +148,9 @@ public class Q19_RegularExpressionsMatching {
         int m = pattern.length();
 
         if (i < 0 || i >= n || j < 0 || j >= m) // 越界
+        {
             return false;
+        }
 
         // 子串长度
         n = string.length() - i;
@@ -149,12 +162,14 @@ public class Q19_RegularExpressionsMatching {
         if (n == 0) {   // # 空字符串
             // 空字符串匹配 仅有下标奇数位均为'*'
             if (m % 2 != 0)  // 长度为奇数必不匹配
+            {
                 return false;
-            else {  // 长度为偶数: 包括空正则串
+            } else {  // 长度为偶数: 包括空正则串
                 // 遍历奇数位 判断为'*'
                 for (int k = 1; k < m; k += 2) {
-                    if (pattern.charAt(k) != STAR)
+                    if (pattern.charAt(k) != STAR) {
                         return false;
+                    }
                 }
                 // 仅当字串空且模式串形如"c*" * k(包括空模式串)返回true
                 return true;
@@ -162,19 +177,23 @@ public class Q19_RegularExpressionsMatching {
         } else {    // # 非空字符串
             // 区分正则串空与否
             if (m == 0) // 空正则串
+            {
                 return false;
-            else {      // 非空正则串
+            } else {      // 非空正则串
                 // pattern[1]分是'*'和不是'*'
                 if (m < 2 || pattern.charAt(j + 1) != STAR) {   // 正则串不足2位 or 后一位不是'*'
                     // 匹配 string[0], pattern[0]
-                    if (isCharMatch(string, pattern, i, j))
+                    if (isCharMatch(string, pattern, i, j)) {
                         return matchByRecursionStep(string, pattern, i + 1, j + 1);
+                    }
                     return false;
                 } else {           // 后一位是'*'
                     // 如果string[0]和pattern[0]匹配
                     if (isCharMatch(string, pattern, i, j))
                         // 用"c*" || 不用"c*"
+                    {
                         return matchByRecursionStep(string, pattern, i + 1, j) || matchByRecursionStep(string, pattern, i, j + 2);
+                    }
                     // 如果string[0]和pattern[0]不匹配 直接忽略"c*"
                     return matchByRecursionStep(string, pattern, i, j + 2);
                 }
