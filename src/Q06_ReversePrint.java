@@ -26,8 +26,9 @@ public class Q06_ReversePrint {
      * 递归
      */
     public static void byRecursive(ListNode listNode) {
-        if (listNode == null)
+        if (listNode == null) {
             return;
+        }
         byRecursive(listNode.next);
         System.out.println(listNode.val);
     }
