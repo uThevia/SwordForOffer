@@ -1,6 +1,7 @@
 import utils.Stack;
 
 /**
+ * 包含min函数的栈
  * 定义栈的数据结构，实现一个得到最小元素的min函数在该栈中
  * 调用min, push, pop的时间复杂度都是O(1)
  */
