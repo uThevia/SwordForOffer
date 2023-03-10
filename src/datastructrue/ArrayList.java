@@ -1,4 +1,4 @@
-package utils;
+package datastructrue;
 
 public class ArrayList<T> {
     private static final int INITIAL_CAPACITY = 10;

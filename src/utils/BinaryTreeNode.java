@@ -1,10 +1,6 @@
 package utils;
 
 import java.util.*;
-import java.util.Stack;
-import java.util.Queue;
-import java.util.ArrayList;
-import java.util.LinkedList;
 
 /**
  * 二叉树
