@@ -1,0 +1,12 @@
+
+b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(÷˜¦
+0
+java:S1220""Move this file to a named package.
+P
+java:S1118":Add a private constructor to hide the implicit public one.(÷˜¦
+N
+java:S1854"8Remove this useless assignment to local variable "temp".(Êï¥î
+?
+java:S1481")Remove this unused "temp" local variable.(Êï¥î
+1
+java:S3626$"Remove this redundant jump.(ûÁİ…

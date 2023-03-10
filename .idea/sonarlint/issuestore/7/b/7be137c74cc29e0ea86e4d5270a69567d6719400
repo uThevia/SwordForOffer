@@ -1,0 +1,7 @@
+
+b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(©»õ¡
+0
+java:S1220""Move this file to a named package.
+P
+java:S1118":Add a private constructor to hide the implicit public one.(©»õ¡
+Q	java:S125!"<This block of commented-out lines of code should be removed.(­ã¸

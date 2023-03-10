@@ -1,0 +1,17 @@
+
+o
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÈúŒî
+s	java:S135D"YReduce the total number of break and continue statements in this loop to use at most one.(ÆÓËÚþÿÿÿÿ
+r	java:S127&"XRefactor the code in order to not assign to this loop counter from within the loop body.(°ñÆõþÿÿÿÿ
+g	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(øó‰‘ûÿÿÿÿ
+Q	java:S125"<This block of commented-out lines of code should be removed.(î±ï
+1
+java:S3626H"Remove this redundant jump.(ÉŠ©ƒ
+1
+java:S3626K"Remove this redundant jump.(ÉŠ©ƒ
+Q	java:S125P"<This block of commented-out lines of code should be removed.(³É¡©
+S	java:S106q"9Replace this use of System.out or System.err by a logger.(—º‚¦ýÿÿÿÿ
+N	java:S106r"9Replace this use of System.out or System.err by a logger.(¨µÁ€
+S	java:S106s"9Replace this use of System.out or System.err by a logger.(Å‘ó§ÿÿÿÿÿ
+D
+java:S1144c"/Remove this unused private "checkInput" method.(ðŽÛ

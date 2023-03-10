@@ -1,0 +1,12 @@
+
+b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ÙÚ…Ğ
+m
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(›•ûøÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(¦ÏÁ£øÿÿÿÿ
+K
+java:S18547"5Remove this useless assignment to local variable "c".(’œÉÁ
+<
+java:S14817"&Remove this unused "c" local variable.(’œÉÁ
+N	java:S1068"9Replace this use of System.out or System.err by a logger.(Àù§
+S	java:S1069"9Replace this use of System.out or System.err by a logger.(‡‹Äšşÿÿÿÿ
+S	java:S106:"9Replace this use of System.out or System.err by a logger.(‡‹Äšşÿÿÿÿ

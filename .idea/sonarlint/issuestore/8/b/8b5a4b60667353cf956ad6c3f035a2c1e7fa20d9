@@ -1,0 +1,12 @@
+
+f	java:S1172"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦ñéÁ
+g	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(¥®ıÿÿÿÿÿ
+`
+java:S2184"ECast one of the operands of this subtraction operation to a "double".(’±ËŞÿÿÿÿÿ
+7	java:S131""Add a default case to this switch.(¬„ ö
+Q	java:S125;"<This block of commented-out lines of code should be removed.(¯«şÌ
+V	java:S125D"<This block of commented-out lines of code should be removed.(ì¤Ÿ†şÿÿÿÿ
+Q	java:S125M"<This block of commented-out lines of code should be removed.(ïà›Ğ
+N	java:S106W"9Replace this use of System.out or System.err by a logger.(·«Ø—
+S	java:S106X"9Replace this use of System.out or System.err by a logger.(–¡—õûÿÿÿÿ
+N	java:S106Y"9Replace this use of System.out or System.err by a logger.(ƒå¹´

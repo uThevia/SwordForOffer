@@ -1,0 +1,81 @@
+
+u
+java:S2293‘"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ùşœ±úÿÿÿÿ
+g	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ó«Í­øÿÿÿÿ
+;
+java:S1640‘"Convert this Map to an EnumMap.(Ùşœ±úÿÿÿÿ
+;
+java:S1640–"Convert this Map to an EnumMap.(™ÃëÄüÿÿÿÿ
+;
+java:S1640"Convert this Map to an EnumMap.(âŒøúÿÿÿÿ
+;
+java:S1640¢"Convert this Map to an EnumMap.(î É÷ùÿÿÿÿ
+6
+java:S1640©"Convert this Map to an EnumMap.(¶“ Û
+6
+java:S1640¯"Convert this Map to an EnumMap.(Ìïı¶
+;
+java:S1640³"Convert this Map to an EnumMap.(É¤¹ğúÿÿÿÿ
+;
+java:S1640¹"Convert this Map to an EnumMap.(¬¾Êõıÿÿÿÿ
+;
+java:S1640¾"Convert this Map to an EnumMap.(ó’Æªúÿÿÿÿ
+6
+java:S1640Â"Convert this Map to an EnumMap.(©Ë¥×
+6
+java:S1640Ç"Convert this Map to an EnumMap.(Ë†İç
+S	java:S106"9Replace this use of System.out or System.err by a logger.(á±Æ¢øÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(á±Æ¢øÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(á±Æ¢øÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(á±Æ¢øÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(á±Æ¢øÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(á±Æ¢øÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(á±Æ¢øÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(á±Æ¢øÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(á±Æ¢øÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(á±Æ¢øÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(á±Æ¢øÿÿÿÿ
+Q	java:S125?"<This block of commented-out lines of code should be removed.(êØÓÒ
+Q	java:S125H"<This block of commented-out lines of code should be removed.(˜ıÖ¾
+H
+java:S3599–",Use another way to initialize this instance.(™ÃëÄüÿÿÿÿ
+u
+java:S1171–"YMove the contents of this initializer to a standard constructor or to field initializers.(™ÃëÄüÿÿÿÿ
+H
+java:S3599",Use another way to initialize this instance.(âŒøúÿÿÿÿ
+u
+java:S1171"YMove the contents of this initializer to a standard constructor or to field initializers.(âŒøúÿÿÿÿ
+H
+java:S3599¢",Use another way to initialize this instance.(î É÷ùÿÿÿÿ
+u
+java:S1171¢"YMove the contents of this initializer to a standard constructor or to field initializers.(î É÷ùÿÿÿÿ
+C
+java:S3599©",Use another way to initialize this instance.(¶“ Û
+p
+java:S1171©"YMove the contents of this initializer to a standard constructor or to field initializers.(¶“ Û
+C
+java:S3599¯",Use another way to initialize this instance.(Ìïı¶
+p
+java:S1171¯"YMove the contents of this initializer to a standard constructor or to field initializers.(Ìïı¶
+H
+java:S3599³",Use another way to initialize this instance.(É¤¹ğúÿÿÿÿ
+u
+java:S1171³"YMove the contents of this initializer to a standard constructor or to field initializers.(É¤¹ğúÿÿÿÿ
+H
+java:S3599¹",Use another way to initialize this instance.(¬¾Êõıÿÿÿÿ
+u
+java:S1171¹"YMove the contents of this initializer to a standard constructor or to field initializers.(¬¾Êõıÿÿÿÿ
+H
+java:S3599¾",Use another way to initialize this instance.(ó’Æªúÿÿÿÿ
+u
+java:S1171¾"YMove the contents of this initializer to a standard constructor or to field initializers.(ó’Æªúÿÿÿÿ
+C
+java:S3599Â",Use another way to initialize this instance.(©Ë¥×
+p
+java:S1171Â"YMove the contents of this initializer to a standard constructor or to field initializers.(©Ë¥×
+C
+java:S3599Ç",Use another way to initialize this instance.(Ë†İç
+p
+java:S1171Ç"YMove the contents of this initializer to a standard constructor or to field initializers.(Ë†İç
+o
+java:S5843'"TSimplify this regular expression to reduce its complexity from 34 to the 20 allowed.(Ëéú¥ıÿÿÿÿ
