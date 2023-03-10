@@ -1,5 +1,5 @@
 # 剑指Offer
-用java实现剑指Offer第2版
+用java实现剑指Offer第2版  
 每题会有多种方法
 
 ## 目录结构
@@ -10,5 +10,5 @@
 `.\src\utils`	题目实现中用到的数据结构
 
 ## 参考: 
-[剑指Offer第2版 - LeetCode](https://leetcode.cn/problem-list/xb9nqhhg/)
+[剑指Offer第2版 - LeetCode](https://leetcode.cn/problem-list/xb9nqhhg/)  
 [剑指Offer第2版源代码 (C++)](https://github.com/zhedahht/CodingInterviewChinese2)
