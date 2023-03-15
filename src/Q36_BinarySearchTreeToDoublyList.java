@@ -43,7 +43,4 @@ public class Q36_BinarySearchTreeToDoublyList {
         dfs(current.right);
     }
 
-    public static void main(String[] args) {
-
-    }
 }
