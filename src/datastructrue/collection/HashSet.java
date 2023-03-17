@@ -1,4 +1,4 @@
-package datastructrue;
+package datastructrue.collection;
 
 public class HashSet<T> {
     private final static int DEFAULT_CAPACITY = 16;

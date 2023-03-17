@@ -211,6 +211,21 @@ public class Q20_NumericString {
         if (ch >= '0' && ch <= '9') {
             return CharType.CHAR_NUMBER;
         }
+        switch (ch) {
+            case 'e':
+            case 'E':
+                return CharType.CHAR_EXP;
+            case '.':
+                return CharType.CHAR_POINT;
+            case '+':
+            case '-':
+                return CharType.CHAR_SIGN;
+            case ' ':
+                return CharType.CHAR_SPACE;
+            default:
+                return CharType.CHAR_ILLEGAL;
+        }
+        /*
         return switch (ch) {
             case 'e', 'E' -> CharType.CHAR_EXP;
             case '.' -> CharType.CHAR_POINT;
@@ -218,6 +233,7 @@ public class Q20_NumericString {
             case ' ' -> CharType.CHAR_SPACE;
             default -> CharType.CHAR_ILLEGAL;
         };
+         */
     }
 
     /**

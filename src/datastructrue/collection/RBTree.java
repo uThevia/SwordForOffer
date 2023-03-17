@@ -1,4 +1,4 @@
-package datastructrue;
+package datastructrue.collection;
 
 /**
  * 红黑树

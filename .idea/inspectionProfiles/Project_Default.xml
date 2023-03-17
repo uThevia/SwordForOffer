@@ -74,7 +74,7 @@
     <inspection_tool class="AlibabaAbstractMethodOrInterfaceMethodMustUseJavadoc" enabled="true" level="MAJOR" enabled_by_default="true" />
     <inspection_tool class="AlibabaAvoidApacheBeanUtilsCopy" enabled="true" level="BLOCKER" enabled_by_default="true" />
     <inspection_tool class="AlibabaAvoidCallStaticSimpleDateFormat" enabled="true" level="CRITICAL" enabled_by_default="true" />
-    <inspection_tool class="AlibabaAvoidCommentBehindStatement" enabled="true" level="MAJOR" enabled_by_default="true" />
+    <inspection_tool class="AlibabaAvoidCommentBehindStatement" enabled="false" level="MAJOR" enabled_by_default="false" />
     <inspection_tool class="AlibabaAvoidComplexCondition" enabled="true" level="MAJOR" enabled_by_default="true" />
     <inspection_tool class="AlibabaAvoidConcurrentCompetitionRandom" enabled="true" level="MAJOR" enabled_by_default="true" />
     <inspection_tool class="AlibabaAvoidDoubleOrFloatEqualCompare" enabled="true" level="CRITICAL" enabled_by_default="true" />
@@ -109,7 +109,7 @@
     <inspection_tool class="AlibabaPojoMustOverrideToString" enabled="true" level="MAJOR" enabled_by_default="true" />
     <inspection_tool class="AlibabaPojoMustUsePrimitiveField" enabled="true" level="MAJOR" enabled_by_default="true" />
     <inspection_tool class="AlibabaPojoNoDefaultValue" enabled="true" level="MAJOR" enabled_by_default="true" />
-    <inspection_tool class="AlibabaRemoveCommentedCode" enabled="true" level="MAJOR" enabled_by_default="true" />
+    <inspection_tool class="AlibabaRemoveCommentedCode" enabled="false" level="MAJOR" enabled_by_default="false" />
     <inspection_tool class="AlibabaServiceOrDaoClassShouldEndWithImpl" enabled="true" level="CRITICAL" enabled_by_default="true" />
     <inspection_tool class="AlibabaStringConcat" enabled="true" level="MAJOR" enabled_by_default="true" />
     <inspection_tool class="AlibabaSwitchStatement" enabled="true" level="CRITICAL" enabled_by_default="true" />

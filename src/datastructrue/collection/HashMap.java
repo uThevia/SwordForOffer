@@ -1,4 +1,4 @@
-package datastructrue;
+package datastructrue.collection;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-import datastructrue.Stack;
+import datastructrue.collection.Stack;
 
 /**
  * 包含min函数的栈

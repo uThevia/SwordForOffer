@@ -264,6 +264,7 @@ public class Q37_SerializeBinaiyTree {
             res = res * 10 + (data.charAt(ptr[0]++) - '0'); // 用char的差算出数字值
         }
         return res * sgn;
+
     }
 
 }

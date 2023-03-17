@@ -1,11 +1,8 @@
+import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.IntConsumer;
 
 public class Test {
-
-    private static void test(AtomicInteger n) {
-        n.set(n.get() * 2);
-    }
 
     private static void test(int n) {
         IntConsumer consumer = value -> value = value * 2;

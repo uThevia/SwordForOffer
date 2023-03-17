@@ -1,4 +1,4 @@
-import datastructrue.Stack;
+import datastructrue.collection.Stack;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
