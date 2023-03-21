@@ -1,0 +1,92 @@
+/**
+ * 给定一个数，按照如下规则翻译为字符串
+ * n -> 'a' + n,  n = 0:25, n为1位或2位数字
+ * 请计算一个数有多少种不同的翻译方法
+ */
+public class Q46_TranslateNumbersToStrings {
+    /**
+     * 多译性在于n=10:25可以拆分为单个数字
+     * 拆分时不需要考虑翻译失败需要回溯 因为所有单个数字0:9都有翻译
+     */
+
+    /**
+     * 动态规划	O(n)
+     * $$
+     * f(n) = f(n-1) + f(n-2) * \mathbb{I}(nums[n-1:n] \in 10:25)
+     * \\ f(-1) = 0, f(0) = 1;
+     * $$
+     *
+     * 滚动数组优化动态规划节省空间:
+     * 由于当前值只与前2个值有关, 无需存储整张表, 只需存储2个中间值代表前2个值
+     *
+     * 问题关于正序和倒序不是轴对称的
+     * 但动态规划计算关于正序和倒序是对称的, 从前往后和从后往前是等效的
+     * 	遍历顺序唯一影响的是nums[n-1:n], 只要保证取出相邻2位维持正序结果就不变
+     *
+     * 取出相邻2位的方法
+     * 法1 字符串: 可以将数字装成字符串或字符数组处理, 相邻2位ab用substring, 需占用O(n)空间
+     * 法2 求余法: 可以将数对10取余, 倒序取出一位位并做处理, 相邻2位ab=a*10+b
+     */
+    public static int dp(int num) {
+        if (num < 0) {
+            return 0;
+        }
+
+        final int TEN = 10; // 数的进制
+
+        // f(n) 初始化
+        int fn = 0;    // f(n)
+        int fnsub1 = 0;   // f(n-1)
+        int fnsub2 = 0;   // f(n-2)
+
+        int curBit = 0;     // n位的数字
+        int sub1Bit = 0;    // n-1位的数字
+
+        // 基例: 处理第1位, 包含n=0的情况
+        curBit = num % TEN;
+        num /= TEN;
+        fn = 1;
+        fnsub1 = 1;
+
+        while (num != 0) {  // 非基例 首位不可能是0
+            // 更新: 更新时先前后后, 先更新n-2再更新n-1
+            sub1Bit = curBit;
+            fnsub2 = fnsub1;
+            fnsub1 = fn;
+
+            curBit = num % TEN;
+            num /= TEN;
+
+            // f(n) = f(n-1) + f(n-2) * \mathbb{I}(nums[n-1:n] \in 10:25)
+            fn = fnsub1;
+            if (isInScope(curBit, sub1Bit)) {
+                fn += fnsub2;
+            }
+        }
+        return fn;
+    }
+
+    /**
+     * 相邻2位的数 在区间[10,25]内
+     * \mathbb{I}(nums[n-1:n] \in 10:25)
+     * 主方法取位是倒序, 此方法内维持正序即可
+     * @param curBit    前1位
+     * @param sub1Bit   后1位
+     */
+    private static boolean isInScope(int curBit, int sub1Bit) {
+        int tmp = curBit * 10 + sub1Bit;    // 维持正序: 倒序
+        return tmp >= 10 && tmp <= 25;
+    }
+
+    public static void main(String[] args) {
+        int num = 0;
+        System.out.println(dp(num));
+        num = 1;
+        System.out.println(dp(num));
+        num = 17;
+        System.out.println(dp(num));
+        num = 123;
+        System.out.println(dp(num));
+    }
+
+}

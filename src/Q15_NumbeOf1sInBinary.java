@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 整数 二进制中1的个数
+ */
 public class Q15_NumbeOf1sInBinary {
 
 
