@@ -1,0 +1,97 @@
+import java.util.*;
+
+import static java.lang.Math.min;
+
+/**
+ * 丑数
+ * 把只包含质因子 2,3,5 的数称作丑数, 1是丑数
+ * 求第n个丑数
+ */
+public class Q49_UglyNumber {
+    /**
+     * M1 最小堆	O(nlogn),O(n)
+     * 每次取出堆顶元素以3种质因数方式生成3个丑数加入堆
+     * 避免重复元素使用哈希集去重
+     * 结果为第n次取出的元素
+     */
+    public static long minHeap(int n) {
+        // 质因子
+        final int[] FACTORS = {2, 3, 5};
+        // 哈希集 避免重复元素
+        Set<Long> seen = new HashSet<Long>();
+        // 最小堆: 保存生成的但又未用来生成的丑数
+        PriorityQueue<Long> heap = new PriorityQueue<Long>();
+
+        // 基例 f[0]=1
+        seen.add(1L);
+        heap.offer(1L);
+
+        // 循环n次: res=f[n-1]
+        long curr = 0;
+        for (int i = 0; i < n; i++) {
+            // 取出堆中最小的丑数
+            curr = heap.poll();
+            // 每个质因子生成1个后继
+            for (int factor : FACTORS) {
+                long next = curr * factor;
+                if (seen.add(next)) {
+                    heap.offer(next);
+                }
+            }
+        }
+        return curr;
+    }
+
+
+    /**
+     * M2 动态规划	O(n),O(n)
+     *
+     * x = 2^a \cdot 3^b \cdot 5^c
+     *
+     * 丑数一定是之前的某(3个一般不同)丑数*2\or*3\or*5得来的
+     * 相当于下一个丑数是从 这3种质因数方式分别生成恰好大于当前最大丑数的丑数 中的最小数
+     *
+     * 令第i个丑数为f[i]
+     * 记录下前i-1个有序丑数f[1:i-1]
+     *
+     * f[i] = \min{(2*f[p_2],3*f[p_3],5*f[p_5])}
+     * \\
+     * \begin{cases}
+     * 2*f[p_2 -1] \le f[i-1] < 2*f[p_2]
+     * \\ 3*f[p_3 -1] \le f[i-1] < 3*f[p_3]
+     * \\ 5*f[p_5 -1] \le f[i-1] < 5*f[p_5]
+     * \end{cases}
+     * \\ p_2,p_3,p_5 \in [1,i-1]
+     * \\ f[1]=1
+     *
+     * 用指针p_2,p_3,p_5记录下对应质因子2,3,5
+     * 当指针对应的质因子对f[i]有贡献时更新指针(自增1)
+     *
+     * 程序中将f的下标均-1, f[0]=1,res=f[n-1]
+     */
+    public static int dp(int n) {
+        // 质因子
+        final int[] FACTORS = {2, 3, 5};
+        final int L = FACTORS.length;
+
+        // dp
+        int[] f = new int[n];
+        f[0] = 1;   // 基例
+
+        int[] points = new int[L];      // 质因子指针
+        int[] nums = new int[L];        // 每个质因子生成的后继丑数
+        for (int i = 1; i < n; i++) {
+            for (int j = 0; j < L; j++) {
+                nums[j] = FACTORS[j] * f[points[j]];
+            }
+            f[i] = Arrays.stream(nums).min().getAsInt();
+            // f[i] = (int) Collections.min(Arrays.asList(nums));   // 需要Integer[]
+            for (int j = 0; j < L; j++) {
+                if (f[i] == nums[j]) {
+                    points[j]++;
+                }
+            }
+        }
+        return f[n-1];
+    }
+}

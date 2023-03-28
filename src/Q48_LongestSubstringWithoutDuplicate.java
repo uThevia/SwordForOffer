@@ -1,0 +1,135 @@
+import java.util.HashMap;
+import java.util.Map;
+import static java.lang.Math.max;
+/**
+ * 从字符串中找出一个最长的不包含重复字符的子串，返回其长度
+ */
+public class Q48_LongestSubstringWithoutDuplicate {
+
+    /**
+     * M 动态规划	O(n)
+     * s(i)为以字符str[i]结尾的最长不重复子串
+     * f(i)为以字符str[i]结尾的最长不重复子串s(i)的长度
+     * k为字符str[i]出现的最后下标(不存在为-1)
+     * d为字符str[i]出现的最后下标与当前位置i的距离
+     * $d=i-k$, $str[i] \in s(i-1)$等效为$d<=f(i-1)$
+     * 	子串中出现重复字符 iff 当前字符
+     * $$
+     * f(i)=
+     * \begin{cases}
+     * f(i-1) + 1 \quad &, d > f(i-1)
+     * \\ d \quad &, d <= f(i-1)
+     * \end{cases}
+     * \\ f(-1) = 0
+     * \\ d = i-k
+     * $$
+     * 由于f(i)只与f(i-1)有关, 只需要保存f(i-1)和结果(最大长度)即可
+     * 	结果最大长度res的更新只发生在子串无重复字符时
+     */
+
+    /**
+     * 1, 哈希表	O(n),$O(|\Sigma|)$ $|\Sigma|$为字符集的大小
+     * 遍历字符串s时，使用哈希表保存所有字符出现的最后下标
+     * 利用f(n-1)或左指针指向s(n-1)起始下标 来判断str[i]是否出现于子串
+     */
+    /**
+     * 1.1, 利用f(n-1)
+     * 思想更直观
+     * */
+    public static int dp(String str) {
+        int n;
+        if (str == null || (n = str.length()) == 0) {
+            return 0;
+        }
+        // 初始化: n=-1
+        int res = 0;    // 最终结果
+        int fisub1 = 0;     // f(i-1)
+        // 哈希表保存所有字符出现的最后下标
+        Map<Character, Integer> dict = new HashMap<Character, Integer>();
+        for (int i = 0; i < n; i++) {
+            // 当前字符
+            char chari = str.charAt(i);
+            // 当前字符出现的最后下标
+            int k = dict.getOrDefault(chari, -1);
+            // 当前字符出现的最后下标与当前位置的距离
+            int d = i - k;
+            // 更新 f(n), res, dict(str[i])
+            /*
+            if (d > fisub1) {   // 子串无重复字符
+                fisub1 += 1;
+                // 最大长度res的更新只发生在子串无重复字符时
+                res = max(res, fisub1);
+            }else {     // 子串有重复字符
+                fisub1 = d;
+            }
+            dict.put(chari, i);
+            */
+            fisub1 = d > fisub1 ? fisub1 + 1 : d;
+            res = max(res, fisub1);
+            dict.put(chari, i);
+        }
+        return res;
+    }
+
+    /**
+     * 1.2, 利用左指针
+     * 代码更简洁
+     * */
+    public static int dpLeftPinter(String str) {
+        int n;
+        if (str == null || (n = str.length()) == 0) {
+            return 0;
+        }
+        // 初始化: n=-1
+        int res = 0;    // 最终结果
+        int start = -1;     // 左指针: 子串s(i-1)的开始下标
+        // 哈希表保存所有字符出现的最后下标
+        Map<Character, Integer> dict = new HashMap<Character, Integer>();
+        for (int i = 0; i < n; i++) {
+            // 当前字符
+            char chari = str.charAt(i);
+            if (dict.containsKey(chari)) {
+                start = max(i, dict.get(chari));
+            }
+            dict.put(chari, i);
+            res = max(res, i - start);
+        }
+        return res;
+    }
+
+
+    /**
+     * 2, 向左遍历	O(n^2)
+     * 从当前下标i向左遍历直到遇到str[i]或子串结束
+     */
+    public static int dpLeftTraversal(String str) {
+        int n;
+        if (str == null || (n = str.length()) == 0) {
+            return 0;
+        }
+        // 初始化: n=-1
+        int res = 0;    // 最终结果
+        int fisub1 = 0;     // f(i-1)
+        for (int i = 0; i < n; i++) {
+            // 当前字符
+            char chari = str.charAt(i);
+            int k = i - 1;// 当前字符在子串中出现的最后下标
+            // 向左遍历直到重复或子串完成
+            while (k >= (i - fisub1) && str.charAt(k) != chari) {
+                --k;
+            }
+            // 子串没有当前字符时  k = i - fisub1 - 1
+            fisub1 = (k == i - fisub1 - 1) ? fisub1 + 1 : i - k;
+            res = max(res, fisub1);
+        }
+        return res;
+    }
+
+    public static void main(String[] args) {
+        String str = "abcabcbb";
+        System.out.println(dp(str));
+        System.out.println(dpLeftPinter(str));
+        System.out.println(dpLeftTraversal(str));
+    }
+
+}
