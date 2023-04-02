@@ -1,4 +1,4 @@
-package datastructrue.simple;
+package datastructrue.basicDataType;
 
 /**
  * 二叉搜索树

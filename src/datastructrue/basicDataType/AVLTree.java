@@ -1,4 +1,4 @@
-package datastructrue.simple;
+package datastructrue.basicDataType;
 
 /**
  * AVL树节点类

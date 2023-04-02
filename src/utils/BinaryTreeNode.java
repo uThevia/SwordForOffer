@@ -25,14 +25,16 @@ public class BinaryTreeNode {
     /** 先序遍历: 递归 */
     public static List<Integer> preOrderRecursion(BinaryTreeNode root){
         List<Integer> result = new ArrayList<Integer>();
-        if(root == null)
+        if(root == null) {
             return result;
+        }
         preOrderRecursionStep(root, result);
         return result;
     }
     private static void preOrderRecursionStep(BinaryTreeNode root, List<Integer> result){
-        if(root == null)
+        if(root == null) {
             return;
+        }
         result.add(root.val);
         preOrderRecursionStep(root.left, result);
         preOrderRecursionStep(root.right, result);
@@ -40,8 +42,9 @@ public class BinaryTreeNode {
     /** 先序遍历: 非递归 */
     public static List<Integer> preOrder(BinaryTreeNode root) {
         List<Integer> result = new ArrayList<Integer>();
-        if (root == null)
+        if (root == null) {
             return result;
+        }
 
         Stack<BinaryTreeNode> stack = new Stack<BinaryTreeNode>();  // 暂存结点的栈
         BinaryTreeNode node = root; // 从根结点开始
@@ -89,14 +92,16 @@ public class BinaryTreeNode {
     /** 中序遍历: 递归 */
     public static List<Integer> inOrderRecursion(BinaryTreeNode root){
         List<Integer> result = new ArrayList<Integer>();
-        if(root == null)
+        if(root == null) {
             return result;
+        }
         inOrderRecursionStep(root, result);
         return result;
     }
     private static void inOrderRecursionStep(BinaryTreeNode root, List<Integer> result){
-        if(root == null)
+        if(root == null) {
             return;
+        }
         inOrderRecursionStep(root.left, result);
         result.add(root.val);
         inOrderRecursionStep(root.right, result);
@@ -104,8 +109,9 @@ public class BinaryTreeNode {
     /** 中序遍历: 非递归 */
     public static List<Integer> inOrder(BinaryTreeNode root) {
         List<Integer> result = new ArrayList<Integer>();
-        if (root == null)
+        if (root == null) {
             return result;
+        }
         Stack<BinaryTreeNode> stack = new Stack<BinaryTreeNode>();
         BinaryTreeNode node = root;
         while (!stack.isEmpty() || node != null){    // 遍历完成时左右子树为空且栈空
@@ -130,14 +136,16 @@ public class BinaryTreeNode {
     /** 后序遍历: 递归 */
     public static List<Integer> postOrderRecursion(BinaryTreeNode root){
         List<Integer> result = new ArrayList<Integer>();
-        if(root == null)
+        if(root == null) {
             return result;
+        }
         postOrderRecursionStep(root, result);
         return result;
     }
     private static void postOrderRecursionStep(BinaryTreeNode root, List<Integer> result){
-        if(root == null)
+        if(root == null) {
             return;
+        }
         postOrderRecursionStep(root.left, result);
         postOrderRecursionStep(root.right, result);
         result.add(root.val);
@@ -145,8 +153,9 @@ public class BinaryTreeNode {
     /** 后序遍历: 非递归 新方法*/
     public static List<Integer> postOrder(BinaryTreeNode root) {
         List<Integer> result = new ArrayList<Integer>();
-        if(root == null)
+        if(root == null) {
             return result;
+        }
 
         // 因为处理过程中栈的储栈结果与后续遍历刚好相反 所以使用一个栈暂出栈结果
         Stack<Integer> resultStack = new Stack<Integer>(); // 栈暂出栈结果
@@ -157,16 +166,18 @@ public class BinaryTreeNode {
             node = stack.pop();
             resultStack.push(node.val);    // * 遍历该结点
             // 先左后右 出栈顺序为"根右左"
-            if(node.left != null)
+            if(node.left != null) {
                 stack.push(node.left);
+            }
             if(node.right != null) {
                 stack.push(node.right);
             }
         }
 
         // 先用栈存储结果再导入到list中
-        while(!resultStack.empty())
+        while(!resultStack.empty()) {
             result.add(resultStack.pop());
+        }
         /*
         // 也可直接加到列表再翻转
         result.add(node.val);         // * 处改写
@@ -210,8 +221,9 @@ public class BinaryTreeNode {
      */
     public static List<Integer> levelTraversal(BinaryTreeNode root){
         List<Integer> result = new ArrayList<Integer>();
-        if(root == null)
+        if(root == null) {
             return result;
+        }
         // 依次将每层存储到队列中
         Queue<BinaryTreeNode> queue = new LinkedList<BinaryTreeNode>();
         BinaryTreeNode node = root;
@@ -219,10 +231,12 @@ public class BinaryTreeNode {
         while(!queue.isEmpty()){
             node = queue.poll();
             result.add(node.val);
-            if(node.left != null)
+            if(node.left != null) {
                 queue.add(node.left);
-            if(node.right != null)
+            }
+            if(node.right != null) {
                 queue.add(node.right);
+            }
         }
         return result;
     }
