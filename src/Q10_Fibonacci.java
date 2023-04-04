@@ -2,7 +2,7 @@
  * 斐波那契数列
  */
 public class Q10_Fibonacci {
-    /** 递归 */
+    /** M1 递归 */
     public static long recursion(long n) {
         if (n == 0) {
             return 0;
@@ -13,7 +13,7 @@ public class Q10_Fibonacci {
         return recursion(n - 1) + recursion(n - 2);
     }
 
-    /** 循环 */
+    /** M2 循环 */
     public static long loop(long n) {
         if (n == 0) {
             return 0;
@@ -33,7 +33,7 @@ public class Q10_Fibonacci {
     }
 
     /**
-     * 矩阵
+     * M3 矩阵
      * [F(n) F(n-1)]    [1  1 ]^(n-1)
      * |           |   =|     |
      * [F(n-1) F(n-2)]    [1  0 ]
@@ -41,7 +41,6 @@ public class Q10_Fibonacci {
     public static long matrix(long n) {
         return An(n-1)[0][0];       // 幂次n-1, f(n)=矩阵中第1个元素
     }
-
     /**
      * 二分法求矩阵幂A^n
      */
@@ -110,7 +109,7 @@ public class Q10_Fibonacci {
 
 
     /**
-     * 公式
+     * M4 公式
      * $f(n)=\frac{1}{\sqrt{5}}((\frac{1+\sqrt{5}}{2})^n-(\frac{1-\sqrt{5}}{2})^n)$
      * */
     public static long formula(long n) {
