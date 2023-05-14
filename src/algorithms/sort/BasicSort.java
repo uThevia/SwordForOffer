@@ -16,9 +16,7 @@ import java.util.Arrays;
  * 基数排序     n*k   n*k   n*k       n+k  外置  稳定
  */
 public class BasicSort {
-    /**
-     * 冒泡排序
-     */
+    /** 冒泡排序 */
     public static void bubbleSort(int[] arr) {
         int n = arr.length;
         // 外层循环用于控制轮数
@@ -35,9 +33,7 @@ public class BasicSort {
         }
     }
 
-    /**
-     * 选择排序
-     */
+    /** 选择排序 */
     public static void selectionSort(int[] arr) {
         int n = arr.length;
         // 遍历数组，每次选出未排序序列的最小元素并放到已排序序列的最后面
@@ -56,9 +52,7 @@ public class BasicSort {
         }
     }
 
-    /**
-     * 插入排序
-     */
+    /** 插入排序 */
     // 插入排序函数
     public static void insertionSort(int[] arr) {
         int n = arr.length;

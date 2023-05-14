@@ -1,5 +1,6 @@
 package algorithms.sort;
 
+import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -21,7 +22,7 @@ public class QuickSort {
     private static void quickSortRecursion(int[] arr, int left, int right) {
         if (left < right) {
             // partition 方法返回主元素的索引
-            int pivotIndex = partition(arr, left, right);
+            int pivotIndex = partitionFill(arr, left, right);
             // 对主元素左边的子数组进行递归排序
             quickSortRecursion(arr, left, pivotIndex - 1);
             // 对主元素右边的子数组进行递归排序
@@ -169,5 +170,11 @@ public class QuickSort {
         swap(nums, right, i);
         return partition(nums, left, right);
     }
-
+    
+    
+    public static void main(String[] args) {
+        int[] array = {5, 1, 4, 2, 8}; // 待排序数组
+        quickSort(array);
+        System.out.println(Arrays.toString(array));
+    }
 }

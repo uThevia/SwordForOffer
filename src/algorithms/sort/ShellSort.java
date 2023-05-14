@@ -1,37 +1,25 @@
 package algorithms.sort;
 
-/**
- * 希尔排序
- */
+/** 希尔排序 */
 public class ShellSort {
-    /**
-     * 希尔排序算法 - 对数组 arr 进行排序
-     *
-     * @param arr 待排序的整型数组
-     */
+
+    /** 希尔排序 */
     public static void shellSort(int[] arr) {
-        int gap = arr.length / 2; // 设置步长
-        // 当步长为 1 时即完成排序
-        while (gap > 0) {
-            // 对每一组进行插入排序
-            for (int i = gap; i < arr.length; i++) {
-                int j = i;
-                // 每组中相邻元素之间相差 gap 个位置，比较并交换相邻元素，直到找到正确位置
-                while (j >= gap && arr[j - gap] > arr[j]) {
-                    swap(arr, j - gap, j);
-                    j -= gap;
-                }
+    int n = arr.length;
+    // 步长
+    for (int gap = n / 2; gap > 0; gap /= 2) {
+        // 按数组顺序 对每组的非首个元素进行组内插入排序: 组内相邻元素间距为步长
+        for (int i = gap; i < n; i++) {
+            // 每组的非首个元素
+            int temp = arr[i];
+            // 将当前元素插入到组内有序区的正确位置
+            int j;	// 每组的有序区元素下标
+            for(j = i - gap; j >= 0 && temp < arr[j]; j -= gap) {
+                arr[j + gap] = arr[j];
             }
-            gap /= 2; // 步长除以 2，继续对数组进行分组和排序
+            arr[j + gap] = temp;
         }
     }
-
-    /**
-     */
-    private static void swap(int[] arr, int i, int j) {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-    }
+}
 
 }
